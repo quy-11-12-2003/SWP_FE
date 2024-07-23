@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardContent, CardMedia, Typography, Button, CardActions } from "@mui/material";
+import { Card, CardContent, CardMedia, Typography, Button, CardActions, Box } from "@mui/material";
 import { fCurrencyVND } from "../../../utils/formatNumber";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../../app/redux/cart/cartSlice";
@@ -26,20 +26,25 @@ const ProductCard = ({ product }) => {
                 component="img"
                 height="140"
                 image={imageUrl}
-                alt={product.name}
+                alt={product?.product?.name}
                 sx={{ objectFit: "contain" }}
             />
-            <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                    {product.name}
+            <CardContent sx={{ paddingBottom: 0 }}>
+                <Typography gutterBottom variant="h6" component="div" noWrap>
+                    {product?.product?.name}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
-                    {fCurrencyVND(product.price)}
-                </Typography>
+                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <Typography variant="body2" color="text.secondary">
+                        {product.size}g
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                        {fCurrencyVND(product.price)}
+                    </Typography>
+                </Box>
             </CardContent>
-            <CardActions>
-                <Button size="small" onClick={handleAddToCart}>Thêm vào giỏ hàng</Button>
-                <Button size="small" onClick={handleViewDetails}>Xem chi tiết</Button>
+            <CardActions sx={{ justifyContent: 'space-between', padding: 2 }}>
+                <Button variant="contained" size="small" onClick={handleAddToCart}>Thêm vào giỏ hàng</Button>
+                <Button variant="outlined" size="small" onClick={handleViewDetails}>Xem chi tiết</Button>
             </CardActions>
         </Card>
     );

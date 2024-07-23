@@ -6,7 +6,7 @@ export const FormatType = {
   fullDateTimeWithSecond: "fullDateTimeWithSecond",
 };
 
-export const formatDate = (value, formatType, lng) => {
+export const formatDate = (value, formatType) => {
   if (!isDate(value)) return value;
   switch (formatType) {
     case FormatType.fullDateTimeWithSecond:

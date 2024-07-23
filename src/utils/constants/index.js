@@ -22,4 +22,5 @@ export const STATUS_ORDER = {
   shipping: "DELIVERING",
   completed: "DELIVERED",
   canceled: "CANCEL",
+  all: "ALL",
 };

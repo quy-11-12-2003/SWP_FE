@@ -48,22 +48,6 @@ export const authSlice = createSlice({
       const avatarUrl = `${user.avatar}?time=${new Date().getTime()}`;
       state.user = { ...user, avatar: avatarUrl };
     },
-    updateAvatarUser(state, action) {
-      state.user.avatar = `${action.payload}?time=${new Date().getTime()}`;
-    },
-    updateProfileUser(state, action) {
-      const { name, username, department, signature, aboutMe, phone } =
-        action.payload;
-      state.user.username = username;
-      state.user.name = name;
-      state.user.department = department;
-      state.user.signature = signature;
-      state.user.aboutMe = aboutMe;
-      state.user.phone = phone;
-    },
-    updateEmailUser(state, action) {
-      state.user.email = action.payload;
-    },
   },
   extraReducers: (builder) => {
     builder.addMatcher(

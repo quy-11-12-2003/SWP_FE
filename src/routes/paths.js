@@ -26,4 +26,5 @@ export const PATH_APP = {
     index: path(ROOTS_APP, "/users/purchase"),
   },
   checkout: path(ROOTS_APP, "/checkout"),
+
 };

@@ -8,7 +8,7 @@ import { PATH_APP } from "../../../routes/paths";
 
 const DetailContainer = ({ data }) => {
   const dispatch = useDispatch();
-  const router = useNavigate();
+  const navigate = useNavigate();
 
   const { price, size } = data ?? {};
   const { name, image, description, milkBrand, startAge, endAge } =
@@ -19,7 +19,7 @@ const DetailContainer = ({ data }) => {
   };
 
   const handlePaymentPage = () => {
-    router(PATH_APP.checkout);
+    navigate(PATH_APP.checkout);
   };
 
   const handlePaymentNow = () => {

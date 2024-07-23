@@ -17,7 +17,6 @@ const ProductDetails = () => {
   const companyId = productDetails?.product?.milkBrand?.company?.id;
   const responseProductsByCompany = useGetProductsbyCompanyQuery(companyId, { skip: !companyId });
   const { data: productsByCompany } = responseProductsByCompany;
-  console.log(productsByCompany)
 
   const state = specifyState(responseProductDetails);
 

@@ -61,6 +61,15 @@ export const orderApi = apiService
           return [{ type: ORDER_TAG }];
         },
       }),
+      getAllOrders: builder.query({
+        query: () => ({
+          url: "/Order/GetAllOrders",
+          method: "GET",
+        }),
+        transformResponse: (response) => response?.data,
+        providesTags: (result, error, arg) =>
+          [{ type: ORDER_TAG }],
+      })
     }),
   });
 
@@ -68,4 +77,5 @@ export const {
   useGetByStatusQuery,
   useGetOrderByIdQuery,
   useCreateOrderMutation,
+  useGetAllOrdersQuery
 } = orderApi;

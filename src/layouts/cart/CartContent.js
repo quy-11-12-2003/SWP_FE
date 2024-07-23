@@ -8,6 +8,18 @@ import { CartEmpty } from "./CartEmpty";
 const CartContent = () => {
   const cartItems = useSelector((state) => state.cart.items);
 
+  const splitQuantityProduct = cartItems?.reduce((result, product) => {
+    const quantity = product.quantity;
+    const splitProducts = [];
+    for (let index = 0; index < quantity; index += 1) {
+      splitProducts.push({
+        ...product,
+        quantity: 1,
+      });
+    }
+
+    return [...result, ...splitProducts];
+  }, []);
   const isEmpty = !cartItems?.length;
 
   return (

@@ -1,4 +1,5 @@
 import { STATUS_ORDER } from "../../utils/constants";
+import All from "./all";
 import Canceled from "./canceled";
 import Completed from "./completed";
 import Shipping from "./shipping";
@@ -17,4 +18,5 @@ export const MENU_TABS = [
     },
     { label: "Hoàn thành", value: STATUS_ORDER.completed, component: <Completed /> },
     { label: "Đã hủy", value: STATUS_ORDER.canceled, component: <Canceled /> },
+    { label: "tất cả đơn hàng", value: STATUS_ORDER.all, component: < All /> }
 ];
